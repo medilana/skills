@@ -1,5 +1,7 @@
 # Skills Hub
 
+Repo: [github.com/medilana/skills](https://github.com/medilana/skills)
+
 Satu repo gabungan (via **git submodules**) untuk semua AI coding skill/tool yang
 dipakai tim **Frontend, Backend, Mobile, dan QA**. Tiap submodule tetap
 terhubung ke repo aslinya, jadi bisa di-update kapan saja tanpa perlu copy-paste
@@ -10,7 +12,7 @@ manual.
 Clone dengan submodule langsung:
 
 ```bash
-git clone --recurse-submodules <url-repo-ini>
+git clone --recurse-submodules https://github.com/medilana/skills.git
 ```
 
 Kalau sudah terlanjur clone biasa:
