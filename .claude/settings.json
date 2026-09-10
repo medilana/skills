@@ -1,0 +1,22 @@
+{
+  "extraKnownMarketplaces": {
+    "ui-ux-pro-max-skill": {
+      "source": { "source": "github", "repo": "nextlevelbuilder/ui-ux-pro-max-skill" }
+    },
+    "taste-skill": {
+      "source": { "source": "github", "repo": "leonxlnx/taste-skill" }
+    },
+    "impeccable": {
+      "source": { "source": "github", "repo": "pbakaus/impeccable" }
+    },
+    "mattpocock-skills": {
+      "source": { "source": "github", "repo": "mattpocock/skills" }
+    },
+    "supabase-agent-skills": {
+      "source": { "source": "github", "repo": "supabase/agent-skills" }
+    },
+    "cloudflare-skills": {
+      "source": { "source": "github", "repo": "cloudflare/skills" }
+    }
+  }
+}

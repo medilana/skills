@@ -1,0 +1,11 @@
+{
+  "name": "skills-hub",
+  "owner": {
+    "name": "Skills Hub"
+  },
+  "metadata": {
+    "description": "Marketplace internal untuk plugin custom tim (Frontend/Backend/Mobile/QA). Untuk skill pihak ketiga (ui-ux-pro-max, taste-skill, impeccable, mattpocock, supabase, cloudflare), daftarkan lewat extraKnownMarketplaces di .claude/settings.json, bukan di sini -- lihat README.",
+    "version": "1.0.0"
+  },
+  "plugins": []
+}
