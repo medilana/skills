@@ -4,8 +4,65 @@
     "name": "Skills Hub"
   },
   "metadata": {
-    "description": "Marketplace internal untuk plugin custom tim (Frontend/Backend/Mobile/QA). Untuk skill pihak ketiga (ui-ux-pro-max, taste-skill, impeccable, mattpocock, supabase, cloudflare), daftarkan lewat extraKnownMarketplaces di .claude/settings.json, bukan di sini -- lihat README.",
-    "version": "1.0.0"
+    "description": "Plugin skill untuk tim Frontend, Backend, Mobile, dan QA -- dibundel sebagai git submodule di repo ini.",
+    "version": "1.2.0"
   },
-  "plugins": []
+  "plugins": [
+    {
+      "name": "ui-ux-pro-max",
+      "source": {
+        "source": "github",
+        "repo": "nextlevelbuilder/ui-ux-pro-max-skill"
+      },
+      "description": "Generate design system otomatis (warna, tipografi, layout) lintas 22 stack termasuk SwiftUI, Jetpack Compose, React Native, Flutter",
+      "category": "frontend"
+    },
+    {
+      "name": "taste-skill",
+      "source": {
+        "source": "github",
+        "repo": "leonxlnx/taste-skill"
+      },
+      "description": "Anti-slop UI: layout, motion, density lebih manusiawi",
+      "category": "frontend"
+    },
+    {
+      "name": "impeccable",
+      "source": {
+        "source": "github",
+        "repo": "pbakaus/impeccable"
+      },
+      "description": "Audit/polish/critique kualitas UI & aksesibilitas",
+      "category": "frontend"
+    },
+    {
+      "name": "cloudflare",
+      "source": {
+        "source": "github",
+        "repo": "cloudflare/skills"
+      },
+      "description": "Kelola Cloudflare Workers, D1, R2, KV, Hyperdrive",
+      "category": "backend"
+    },
+    {
+      "name": "supabase-agent-skills",
+      "source": {
+        "source": "github",
+        "repo": "supabase/agent-skills"
+      },
+      "description": "Best practice Postgres/Supabase: schema, migration, RLS, query",
+      "category": "backend",
+      "strict": false,
+      "skills": ["./skills"]
+    },
+    {
+      "name": "mattpocock-skills",
+      "source": {
+        "source": "github",
+        "repo": "mattpocock/skills"
+      },
+      "description": "Workflow umum: TDD, code review, spec-to-ticket, debugging (dipakai Frontend + Backend)",
+      "category": "shared"
+    }
+  ]
 }
