@@ -1,0 +1,32 @@
+[submodule "frontend/ui-ux-pro-max-skill"]
+	path = frontend/ui-ux-pro-max-skill
+	url = https://github.com/nextlevelbuilder/ui-ux-pro-max-skill.git
+	branch = main
+[submodule "frontend/taste-skill"]
+	path = frontend/taste-skill
+	url = https://github.com/leonxlnx/taste-skill.git
+	branch = main
+[submodule "frontend/impeccable"]
+	path = frontend/impeccable
+	url = https://github.com/pbakaus/impeccable.git
+	branch = main
+[submodule "backend/supabase-agent-skills"]
+	path = backend/supabase-agent-skills
+	url = https://github.com/supabase/agent-skills.git
+	branch = main
+[submodule "backend/cloudflare-skills"]
+	path = backend/cloudflare-skills
+	url = https://github.com/cloudflare/skills.git
+	branch = main
+[submodule "qa/qa-use"]
+	path = qa/qa-use
+	url = https://github.com/browser-use/qa-use.git
+	branch = main
+[submodule "qa/midscene"]
+	path = qa/midscene
+	url = https://github.com/web-infra-dev/midscene.git
+	branch = main
+[submodule "shared/mattpocock-skills"]
+	path = shared/mattpocock-skills
+	url = https://github.com/mattpocock/skills.git
+	branch = main
