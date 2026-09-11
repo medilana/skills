@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Plugin skill untuk tim Frontend, Backend, Mobile, dan QA -- dibundel sebagai git submodule di repo ini.",
-    "version": "1.2.0"
+    "version": "1.3.0"
   },
   "plugins": [
     {
@@ -53,7 +53,9 @@
       "description": "Best practice Postgres/Supabase: schema, migration, RLS, query",
       "category": "backend",
       "strict": false,
-      "skills": ["./skills"]
+      "skills": [
+        "./skills"
+      ]
     },
     {
       "name": "mattpocock-skills",
@@ -63,6 +65,42 @@
       },
       "description": "Workflow umum: TDD, code review, spec-to-ticket, debugging (dipakai Frontend + Backend)",
       "category": "shared"
+    },
+    {
+      "name": "playwright-skill",
+      "source": {
+        "source": "github",
+        "repo": "lackeyjb/playwright-skill"
+      },
+      "description": "Browser automation E2E testing berbasis bahasa natural, screenshot otomatis",
+      "category": "qa"
+    },
+    {
+      "name": "accessibility",
+      "source": {
+        "source": "github",
+        "repo": "deepakkamboj/claude-marketplace"
+      },
+      "description": "WCAG 2.1 AA compliance check, Playwright accessibility testing, runtime scanning",
+      "category": "qa"
+    },
+    {
+      "name": "expo",
+      "source": {
+        "source": "github",
+        "repo": "expo/skills"
+      },
+      "description": "Skill resmi tim Expo: build UI Expo Router, data fetching, deployment, upgrade SDK (React Native/Expo)",
+      "category": "mobile"
+    },
+    {
+      "name": "appstore-review-skill",
+      "source": {
+        "source": "github",
+        "repo": "devsemih/appstore-review-skill"
+      },
+      "description": "Audit app sebelum submit ke App Store/Play Store -- Swift, Flutter, React Native, Expo, KMP",
+      "category": "mobile"
     }
   ]
 }

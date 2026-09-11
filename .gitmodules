@@ -30,3 +30,19 @@
 	path = shared/mattpocock-skills
 	url = https://github.com/mattpocock/skills.git
 	branch = main
+[submodule "qa/playwright-skill"]
+	path = qa/playwright-skill
+	url = https://github.com/lackeyjb/playwright-skill.git
+	branch = main
+[submodule "qa/accessibility-skill"]
+	path = qa/accessibility-skill
+	url = https://github.com/deepakkamboj/claude-marketplace.git
+	branch = main
+[submodule "mobile/expo-skills"]
+	path = mobile/expo-skills
+	url = https://github.com/expo/skills.git
+	branch = main
+[submodule "mobile/appstore-review-skill"]
+	path = mobile/appstore-review-skill
+	url = https://github.com/devsemih/appstore-review-skill.git
+	branch = main
