@@ -39,11 +39,15 @@ skills-hub/
 │   ├── supabase-agent-skills/ → supabase/agent-skills
 │   └── cloudflare-skills/     → cloudflare/skills
 ├── qa/
-│   ├── qa-use/                → browser-use/qa-use
-│   └── midscene/              → web-infra-dev/midscene
-├── shared/
-│   └── mattpocock-skills/     → mattpocock/skills   (dipakai Frontend + Backend)
-└── mobile/                    → lihat catatan di bawah
+│   ├── playwright-skill/      → lackeyjb/playwright-skill
+│   ├── accessibility-skill/   → deepakkamboj/claude-marketplace
+│   ├── qa-use/                → browser-use/qa-use (bukan plugin, lihat catatan)
+│   └── midscene/              → web-infra-dev/midscene (bukan plugin, lihat catatan)
+├── mobile/
+│   ├── expo-skills/           → expo/skills
+│   └── appstore-review-skill/ → devsemih/appstore-review-skill
+└── shared/
+    └── mattpocock-skills/     → mattpocock/skills   (dipakai Frontend + Backend)
 ```
 
 | Tim | Skill | Fungsi Singkat |
@@ -53,75 +57,66 @@ skills-hub/
 | Frontend | `frontend/impeccable` | Audit/polish/critique kualitas UI & aksesibilitas |
 | Backend | `backend/supabase-agent-skills` | Best practice Postgres/Supabase: schema, migration, RLS, query |
 | Backend | `backend/cloudflare-skills` | Kelola Cloudflare Workers, D1, R2, KV, Hyperdrive |
-| QA | `qa/qa-use` | Platform E2E testing berbasis AI agent, test case bahasa natural |
-| QA | `qa/midscene` | GUI agent E2E testing berbasis vision, lintas web/Android/iOS/desktop |
+| QA | `qa/playwright-skill` | Browser automation E2E testing berbasis bahasa natural |
+| QA | `qa/accessibility-skill` | WCAG 2.1 AA compliance check, Playwright a11y testing |
+| QA | `qa/qa-use` | Platform E2E testing berbasis AI agent (app mandiri, bukan plugin) |
+| QA | `qa/midscene` | GUI agent E2E testing berbasis vision, lintas web/Android/iOS/desktop (SDK, bukan plugin) |
+| Mobile | `mobile/expo-skills` | Skill resmi tim Expo: build UI, data fetching, deployment, upgrade SDK |
+| Mobile | `mobile/appstore-review-skill` | Audit app sebelum submit ke App Store/Play Store |
 | Shared (Frontend + Backend) | `shared/mattpocock-skills` | Workflow umum: TDD, code review, spec-to-ticket, debugging |
 
 ### Catatan soal Mobile
 
-Belum ada skill yang murni native mobile (logic Swift/Kotlin, publish App
-Store/Play Store). Yang paling relevan untuk tim Mobile:
+Selain `mobile/expo-skills` dan `mobile/appstore-review-skill`, skill lain
+yang relevan untuk tim Mobile:
 - **`frontend/ui-ux-pro-max-skill`** — mendukung stack SwiftUI, Jetpack Compose, React Native, Flutter untuk urusan desain.
-- **`qa/midscene`** — bisa testing Android/iOS/HarmonyOS, bukan cuma web.
+- **`qa/midscene`** — bisa testing Android/iOS/HarmonyOS, bukan cuma web (SDK, jalan terpisah dari Claude Code).
 
-## Menambah skill baru
+## Maintenance (nambah/update/hapus skill)
 
-```bash
-git submodule add -b main <url-repo> <folder-tim>/<nama-skill>
-git commit -m "Add <nama-skill> submodule"
+Semua workflow teknis untuk merawat repo ini — nambah skill baru, update ke
+versi terbaru, hapus, sampai troubleshooting — ada di **[MAINTENANCE.md](./MAINTENANCE.md)**.
+Baca file itu kalau kamu yang pegang/maintain repo ini, bukan cuma pakai.
+
+## Plugin Marketplace (Claude Code / Claude.ai)
+
+Repo ini adalah **marketplace Claude Code aktif**. File `.claude-plugin/marketplace.json`
+berisi daftar plugin nyata (bukan placeholder) yang sudah terverifikasi bisa
+di-install lewat Claude.ai maupun Claude Code CLI.
+
+### Cara pakai
+
+**Di Claude.ai:** Customize → Plugins → Manage marketplaces → Add →
+masukkan `https://github.com/medilana/skills` → Sync. Plugin akan muncul di
+tab **Discover**.
+
+**Di Claude Code CLI:**
 ```
-
-## Update satu submodule saja
-
-```bash
-cd <folder-tim>/<nama-skill>
-git checkout main
-git pull
-cd -
-git add <folder-tim>/<nama-skill>
-git commit -m "Bump <nama-skill> to latest"
+/plugin marketplace add medilana/skills
+/plugin install ui-ux-pro-max@skills-hub
 ```
+(nama plugin persis bisa dicek lewat `/plugin` setelah marketplace ditambahkan)
 
-## Plugin Marketplace (Claude Code)
+### Plugin yang tersedia
 
-Repo ini juga menyediakan konfigurasi untuk **Claude Code plugin marketplace**:
+| Plugin | Tim | Sumber asli |
+|---|---|---|
+| `ui-ux-pro-max` | Frontend, Mobile | nextlevelbuilder/ui-ux-pro-max-skill |
+| `taste-skill` | Frontend | leonxlnx/taste-skill |
+| `impeccable` | Frontend | pbakaus/impeccable |
+| `cloudflare` | Backend | cloudflare/skills |
+| `supabase-agent-skills` | Backend | supabase/agent-skills |
+| `mattpocock-skills` | Frontend + Backend | mattpocock/skills |
+| `playwright-skill` | QA | lackeyjb/playwright-skill |
+| `accessibility` | QA | deepakkamboj/claude-marketplace (subfolder `plugins/accessibility`) |
+| `expo` | Mobile | expo/skills (subfolder `plugins/expo`) |
+| `appstore-review-skill` | Mobile | devsemih/appstore-review-skill |
 
-- **`.claude/settings.json`** → daftar `extraKnownMarketplaces` yang otomatis
-  meregistrasi ke-6 marketplace skill pihak ketiga begitu anggota tim
-  meng-trust folder project ini. Cukup taruh file ini di project kamu, tidak
-  perlu `/plugin marketplace add` manual satu-satu.
+> **Catatan:** `qa-use` dan `midscene` (ada sebagai submodule di folder
+> `qa/`) **tidak** ada di daftar plugin di atas — keduanya bukan struktur
+> Claude Code plugin. `qa-use` adalah aplikasi Next.js mandiri (jalan lewat
+> Docker Compose), `midscene` adalah SDK testing biasa. Jalankan keduanya
+> terpisah sesuai README masing-masing repo.
 
-  | Marketplace terdaftar | Tim |
-  |---|---|
-  | `ui-ux-pro-max-skill` | Frontend, Mobile |
-  | `taste-skill` | Frontend |
-  | `impeccable` | Frontend |
-  | `mattpocock-skills` | Frontend, Backend |
-  | `supabase-agent-skills` | Backend |
-  | `cloudflare-skills` | Backend |
+Untuk cara menambah/update/hapus plugin, lihat **[MAINTENANCE.md](./MAINTENANCE.md)**.
 
-  > **Catatan:** `qa-use` dan `midscene` **tidak** termasuk di sini karena
-  > keduanya bukan Claude Code plugin/skill — `qa-use` adalah aplikasi
-  > Next.js mandiri (dijalankan lewat Docker Compose), dan `midscene` adalah
-  > SDK testing biasa. Jalankan keduanya secara terpisah sesuai README
-  > masing-masing repo.
-
-- **`.claude-plugin/marketplace.json`** → placeholder/starter kalau tim mau
-  bikin **plugin custom milik sendiri** di repo ini (misal skill internal
-  perusahaan). File `marketplace.json` **tidak bisa** dipakai untuk
-  membungkus marketplace lain sebagai satu plugin — setiap repo skill di
-  atas sudah punya `marketplace.json`-nya sendiri, jadi cara yang benar
-  untuk menggabungkannya adalah lewat `extraKnownMarketplaces`, bukan
-  nesting di `plugins[]`.
-
-### Cara pakai (anggota tim)
-
-1. Clone repo ini (atau taruh `.claude/settings.json` di root project kamu).
-2. Buka Claude Code di folder itu, trust folder-nya.
-3. Ke-6 marketplace otomatis terdaftar. Install plugin yang dibutuhkan:
-   ```
-   /plugin install ui-ux-pro-max@ui-ux-pro-max-skill
-   /plugin install design-taste-frontend@taste-skill
-   /plugin install impeccable@impeccable
-   ```
-   (nama plugin persis di dalam tiap marketplace bisa dicek lewat `/plugin` di Claude Code)
