@@ -72,6 +72,13 @@ yang relevan untuk tim Mobile:
 - **`frontend/ui-ux-pro-max-skill`** — mendukung stack SwiftUI, Jetpack Compose, React Native, Flutter untuk urusan desain.
 - **`qa/midscene`** — bisa testing Android/iOS/HarmonyOS, bukan cuma web (SDK, jalan terpisah dari Claude Code).
 
+## Cara Pakai Sehari-hari (kapan panggil skill apa)
+
+Bingung skill mana yang perlu dipanggil untuk kerjaan tertentu? Baca
+**[WORKFLOW.md](./WORKFLOW.md)** — berisi peta lengkap dari situasi kerja ke
+skill/plugin yang relevan, termasuk workflow horizontal (semua tim, dari
+API spec awal supaya bisa paralel) dan vertikal (kerjaan harian per tim).
+
 ## Maintenance (nambah/update/hapus skill)
 
 Semua workflow teknis untuk merawat repo ini — nambah skill baru, update ke
