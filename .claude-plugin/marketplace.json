@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Plugin skill untuk tim Frontend, Backend, Mobile, dan QA -- dibundel sebagai git submodule di repo ini.",
-    "version": "1.3.0"
+    "version": "1.3.1"
   },
   "plugins": [
     {
@@ -78,17 +78,22 @@
     {
       "name": "accessibility",
       "source": {
-        "source": "github",
-        "repo": "deepakkamboj/claude-marketplace"
+        "source": "git-subdir",
+        "url": "https://github.com/deepakkamboj/claude-marketplace.git",
+        "path": "plugins/accessibility",
+        "ref": "main"
       },
       "description": "WCAG 2.1 AA compliance check, Playwright accessibility testing, runtime scanning",
-      "category": "qa"
+      "category": "qa",
+      "strict": false
     },
     {
       "name": "expo",
       "source": {
-        "source": "github",
-        "repo": "expo/skills"
+        "source": "git-subdir",
+        "url": "https://github.com/expo/skills.git",
+        "path": "plugins/expo",
+        "ref": "main"
       },
       "description": "Skill resmi tim Expo: build UI Expo Router, data fetching, deployment, upgrade SDK (React Native/Expo)",
       "category": "mobile"
